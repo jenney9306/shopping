@@ -14,6 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 public class Product {
 
+    private String spdNo;
     private String name;
     private BigInteger price;
     private String description;

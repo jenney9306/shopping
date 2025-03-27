@@ -19,7 +19,6 @@ public class MainController {
     public String main() {
         return "main";
     }
-
     @GetMapping("/list")
     public ResponseEntity<List<Product>> getProductList() {
         return ResponseEntity.ok(mainService.getProductList());

@@ -32,6 +32,13 @@ public class SecurityConfig {
 
         httpSecurity.csrf((auth) -> auth.disable());
 
+        httpSecurity
+            .sessionManagement((auth) -> auth.maximumSessions(1)
+            .maxSessionsPreventsLogin(true));
+
+        httpSecurity.sessionManagement((auth) ->
+            auth.sessionFixation().changeSessionId());
+
         return httpSecurity.build();
     }
 

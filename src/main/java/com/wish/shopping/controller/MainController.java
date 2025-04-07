@@ -2,6 +2,7 @@ package com.wish.shopping.controller;
 
 import com.wish.shopping.dto.Product;
 import com.wish.shopping.service.MainService;
+import com.wish.shopping.utils.EmailLogging;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -21,6 +22,7 @@ public class MainController {
 
     private final MainService mainService;
 
+    @EmailLogging
     @GetMapping("/")
     public String main(Model model) {
 
@@ -36,8 +38,10 @@ public class MainController {
         model.addAttribute("id", id);
         model.addAttribute("role", role);
 
-        return "main";
+        return "mains";
     }
+
+    @EmailLogging
     @GetMapping("/list")
     public ResponseEntity<List<Product>> getProductList() {
         return ResponseEntity.ok(mainService.getProductList());
